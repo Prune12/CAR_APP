@@ -11,7 +11,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long idcar;
     private String photocar;
-    private String modèle;
+    private String modele;
     private String marque;
     private  String anneefabriq;
     private Double prix;
@@ -19,7 +19,34 @@ public class Car {
     private String typecarburant;
     private String etat;
     private String localisation;
+    private String typeVehicule;
 
+    public Car(){
+
+    }
+    public Car(  String photocar,
+    String modele,
+    String marque,
+    String anneefabriq,
+    Double prix,
+    String description,
+    String typecarburant,
+    String etat,
+    String localisation,
+    String typeVehicule
+
+               ){
+        this.photocar=photocar;
+        this.modele=modele;
+        this.marque=marque;
+        this.anneefabriq=anneefabriq;
+        this.prix=prix;
+        this.description=description;
+        this.typecarburant=typecarburant;
+        this.etat=etat;
+        this.localisation=localisation;
+        this.typeVehicule=typeVehicule;
+    }
 
     public Long getIdcar() {
         return idcar;
@@ -37,12 +64,12 @@ public class Car {
         this.photocar = photocar;
     }
 
-    public String getModèle() {
-        return modèle;
+    public String getModele() {
+        return modele;
     }
 
-    public void setModèle(String modèle) {
-        this.modèle = modèle;
+    public void setModele(String modele) {
+        this.modele = modele;
     }
 
     public String getMarque() {
@@ -99,5 +126,13 @@ public class Car {
 
     public void setLocalisation(String localisation) {
         this.localisation = localisation;
+    }
+
+    public void setTypeVehicule(String typeVehicule) {
+        this.typeVehicule = typeVehicule;
+    }
+
+    public String getTypeVehicule() {
+        return typeVehicule;
     }
 }
