@@ -2,12 +2,14 @@ package com.backend.car_app.Service.implementation.abstract_factory;
 
 import com.backend.car_app.models.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+//classe concrete de factory representant la famille des vehicules à essence
 @Service
 public class FactoryVehiculeEssence extends IfactoryCarburant{
 
     @Override
-    public Car creerVehicule(String typeVehicule, String photocar, String modele, String marque, String anneeFab, Double prix,
+    public Car creerVehicule(String typeVehicule, MultipartFile photocar, String modele, String marque, String anneeFab, Double prix,
                              String description, String typeCarburant, String etat, String localisation) {
 
         Car vehiculeBase = creerVehiculeBase(typeVehicule, photocar, modele, marque, anneeFab, prix,
@@ -15,9 +17,9 @@ public class FactoryVehiculeEssence extends IfactoryCarburant{
 
         if (typeCarburant.equalsIgnoreCase("Essence")) {
             if (vehiculeBase instanceof Automobile) {
-                return new AutomobileEssence(photocar, modele, marque, anneeFab, prix, description, typeCarburant, etat, localisation,typeVehicule);
+                return new AutomobileEssence();
             } else if (vehiculeBase instanceof Scooter) {
-                return new ScooterEssence(photocar, modele, marque, anneeFab, prix, description, typeCarburant, etat, localisation,typeVehicule);
+                return new ScooterEssence();
             } else {
                 throw new IllegalArgumentException("Type de véhicule non supporté");
             }
@@ -27,13 +29,13 @@ public class FactoryVehiculeEssence extends IfactoryCarburant{
     }
 
     @Override
-    protected Car creerVehiculeBase(String typeVehicule, String photocar, String modele, String marque, String anneeFab, Double prix,
+    protected Car creerVehiculeBase(String typeVehicule, MultipartFile photocar, String modele, String marque, String anneeFab, Double prix,
                                     String description, String typeCarburant, String etat, String localisation) {
 
         if (typeVehicule.equalsIgnoreCase("Automobile")) {
-            return new Automobile(photocar, modele, marque, anneeFab, prix, description, typeCarburant, etat, localisation,typeVehicule);
+            return new Automobile();
         } else if (typeVehicule.equalsIgnoreCase("Scooter")) {
-            return new Scooter(photocar, modele, marque, anneeFab, prix, description, typeCarburant, etat, localisation,typeVehicule);
+            return new Scooter();
         } else {
             throw new IllegalArgumentException("Type de véhicule non supporté");
         }
