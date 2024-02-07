@@ -26,7 +26,7 @@ public class VehiculeDocumentsService {
     //fonction permettant de creer un objet document constitué d'une liasse de document
     public VehiculeDocuments buildAndSaveVehicleDocuments(MultipartFile docImmatriculation,MultipartFile docCertificat,MultipartFile BonCommande) throws IOException {
         VehiculeDocuments vehicleDocuments = builder.construct(docImmatriculation,docCertificat,BonCommande);
-        repository.save(vehicleDocuments);
+
         return vehicleDocuments;
     }
 }

@@ -25,4 +25,19 @@ public class VehiculeDocuments {
     public void setBonCommande(String bonCommande) {
         this.bonCommande = bonCommande;
     }
+    public Long getIddoc() {
+        return iddoc;
+    }
+
+    public String getDemandeImmatriculation() {
+        return demandeImmatriculation;
+    }
+
+    public String getCertificatCession() {
+        return certificatCession;
+    }
+
+    public String getBonCommande() {
+        return bonCommande;
+    }
 }

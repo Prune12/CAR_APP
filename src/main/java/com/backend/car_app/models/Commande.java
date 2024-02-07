@@ -3,7 +3,7 @@ package com.backend.car_app.models;
 import jakarta.persistence.*;
 
 @Entity
-public class Command {
+public class Commande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idcommand;
@@ -16,6 +16,7 @@ public class Command {
     private String docCertificat;
     private String bonCommand;
     //-->
+    private String typeCommande;
     public void setIdcommand(Long idcommand) {
         this.idcommand = idcommand;
     }
@@ -70,5 +71,36 @@ public class Command {
 
     public String getBonCommand() {
         return bonCommand;
+    }
+
+    public void setTypeCommande(String typeCommande) {
+        this.typeCommande = typeCommande;
+    }
+
+    public String getTypeCommande() {
+        return typeCommande;
+    }
+
+    public Commande(){
+
+    }
+
+    public Commande(
+
+    String datecommand,
+
+    Client idclient,
+    String etatcommand,
+
+    String docImatriculation,
+    String docCertificat,
+    String bonCommand
+    ){
+        this.datecommand=datecommand;
+        this.idclient=idclient;
+        this.etatcommand=etatcommand;
+        this.docImatriculation=docImatriculation;
+        this.docCertificat=docCertificat;
+        this.bonCommand=bonCommand;
     }
 }

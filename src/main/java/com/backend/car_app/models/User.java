@@ -1,5 +1,8 @@
 package com.backend.car_app.models;
 
+import jakarta.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class User {
 
     private String name;
