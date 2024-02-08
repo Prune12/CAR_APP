@@ -24,7 +24,7 @@ public class VehicleDocumentsBuilderImpl extends VehicleDocumentsBuilder {
 
 
     public VehiculeDocuments construct(MultipartFile docImmatriculation, MultipartFile docCertificat, MultipartFile docBonCommande)throws IOException {
-        VehiculeDocuments vehicleDocuments = new VehiculeDocuments();
+        VehiculeDocuments vehicleDocuments = VehiculeDocuments.getInstance();
         buildDemandeImmatriculation(vehicleDocuments, docImmatriculation);
         buildCertificatCession(vehicleDocuments, docCertificat);
         buildBonCommande(vehicleDocuments, docBonCommande);

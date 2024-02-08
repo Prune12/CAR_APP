@@ -14,7 +14,7 @@ public class Director {
 
 
         public void construct(MultipartFile docImmatriculation,MultipartFile docCertificat,MultipartFile docBonCommande)throws IOException {
-            VehiculeDocuments vehicleDocuments = new VehiculeDocuments();
+            VehiculeDocuments vehicleDocuments = VehiculeDocuments.getInstance();
             builder.buildDemandeImmatriculation(vehicleDocuments,docImmatriculation);
             builder.buildCertificatCession(vehicleDocuments,docCertificat);
             builder.buildBonCommande(vehicleDocuments,docBonCommande);

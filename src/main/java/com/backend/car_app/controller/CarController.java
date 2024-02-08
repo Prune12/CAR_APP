@@ -4,18 +4,17 @@ import com.backend.car_app.Service.CarService;
 import com.backend.car_app.Service.VehiculeDocumentsService;
 import com.backend.car_app.models.Car;
 import com.backend.car_app.models.VehiculeDocuments;
+import com.backend.car_app.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 // controller qui retourne les api les fonctionalités d'un vehicule
@@ -24,6 +23,8 @@ import java.util.Objects;
 public class CarController {
     @Autowired
     CarService carServ;
+    @Autowired
+    CarRepository carRepository;
     @Autowired
     VehiculeDocumentsService builder;
     @PostMapping(path = "/abstractfactory/createvehicule", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -58,5 +59,11 @@ public class CarController {
         }
         VehiculeDocuments vehicleDocuments = builder.buildAndSaveVehicleDocuments(docImmatriculation,docCertificat,BonCommande);
         return ResponseEntity.ok(vehicleDocuments);
+    }
+
+    //afficher la liste des vehicules
+    @GetMapping(path = "/listvehicule")
+    public List<Car> getcar(){
+        return carRepository.findAll();
     }
 }
