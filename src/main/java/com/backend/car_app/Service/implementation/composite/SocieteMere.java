@@ -2,6 +2,7 @@ package com.backend.car_app.Service.implementation.composite;
 
 import java.util.List;
 
+import com.backend.car_app.Service.implementation.template_method.Commande;
 import com.backend.car_app.models.Car;
 
 import lombok.Data;
@@ -11,16 +12,18 @@ public class SocieteMere implements Societe {
 
     private String name;
     private List<Societe> filiales;
-    private List<Car> vehicules;
+    private List<Commande> commandes;
 
-    public Car ajouterVehicle(Car vehicule){
-        return vehicule;
+    public SocieteMere(String name, List<Societe> filiales, List<Commande> commandes) {
+        this.name = name;
+        this.filiales = filiales;
+        this.commandes = commandes;
     }
 
     @Override
-    public Car ajouterVehicule(Car vehicule) {
-        vehicules.add(vehicule);
-        return vehicule;
+    public Commande ajouterCommande(Commande commande) {
+        commandes.add(commande);
+        return commande;
     }
 
     public Societe ajouterFiliale(Societe societe){
