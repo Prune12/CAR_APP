@@ -14,6 +14,22 @@ public class VehicleIterator implements Iterator{
         this.cars = cars;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public int getCurrentPosition() {
+        return currentPosition;
+    }
+
+    public void setCurrentPosition(int currentPosition) {
+        this.currentPosition = currentPosition;
+    }
+
     @Override
     public Car getNext() {
         if(!hasNext()){
